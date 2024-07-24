@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { WOW } from 'wowjs';
 import 'animate.css/animate.min.css';
-import { FaGithub, FaTwitter, FaLinkedin, FaGlobe, FaInstagram } from 'react-icons/fa';
+import { FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import { teamMembers } from '../constant';
 
 const OurTeam: React.FC = () => {
@@ -22,8 +22,8 @@ const OurTeam: React.FC = () => {
             <div className="container mx-auto px-4">
                 <h2 className="text-center text-3xl font-bold mb-6 text-gray-900">Meet the <span className="text-blue-800">team</span></h2>
                 <p className="mt-4 text-lg text-center pb-4 text-gray-600 animate__animated animate__fadeIn animate__delay-1s">
-                        Our dedicated team of professionals
-                    </p>
+                    Our dedicated team of professionals
+                </p>
                 <Swiper
                     modules={[Navigation, Pagination, Autoplay]}
                     spaceBetween={20}
@@ -47,11 +47,6 @@ const OurTeam: React.FC = () => {
                                 <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
                                 <p className="text-gray-600 mb-2">{member.role}</p>
                                 <div className="flex justify-center space-x-4 text-2xl mb-4">
-                                    {member.social.github && (
-                                        <a href={member.social.github} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
-                                            <FaGithub />
-                                        </a>
-                                    )}
                                     {member.social.twitter && (
                                         <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
                                             <FaTwitter />
@@ -60,11 +55,6 @@ const OurTeam: React.FC = () => {
                                     {member.social.linkedin && (
                                         <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
                                             <FaLinkedin />
-                                        </a>
-                                    )}
-                                    {member.social.website && (
-                                        <a href={member.social.website} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
-                                            <FaGlobe />
                                         </a>
                                     )}
                                     {member.social.instagram && (

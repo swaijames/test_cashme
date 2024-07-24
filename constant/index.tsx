@@ -131,8 +131,9 @@ export const teamMembers = [
     role: 'Frontend Developer',
     image: '/assets/user.png',
     social: {
-      github: 'https://github.com/martasmith',
+      twitter: 'https://twitter.com/darrenrandolph',
       linkedin: 'https://linkedin.com/in/martasmith',
+      instagram: 'https://instagram.com/ayatblack',
     },
   },
   {
@@ -142,6 +143,7 @@ export const teamMembers = [
     social: {
       twitter: 'https://twitter.com/darrenrandolph',
       linkedin: 'https://linkedin.com/in/darrenrandolph',
+      instagram: 'https://instagram.com/ayatblack',
     },
   },
   {
@@ -151,6 +153,7 @@ export const teamMembers = [
     social: {
       twitter: 'https://twitter.com/darrenrandolph',
       linkedin: 'https://linkedin.com/in/darrenrandolph',
+      instagram: 'https://instagram.com/ayatblack',
     },
   },
   {
@@ -158,7 +161,7 @@ export const teamMembers = [
     role: 'Web Designer',
     image: '/assets/user.png',
     social: {
-      website: 'https://ayatblack.com',
+      twitter: 'https://twitter.com/darrenrandolph',
       linkedin: 'https://linkedin.com/in/ayatblack',
       instagram: 'https://instagram.com/ayatblack',
     },

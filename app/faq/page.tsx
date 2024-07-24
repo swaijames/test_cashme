@@ -1,8 +1,12 @@
-// c:/Users/pinch/Music/cashme_tanzania/pages/faqpage.tsx
-import FAQ from '../../components/FAQ';
+// pages/faq/page.tsx
 
-const FaqPage = () => {
-  return <FAQ />;
-};
+import React from 'react';
+import FAQComponent from '../../components/FAQ';
 
-export default FaqPage;
+const FAQPage: React.FC = () => (
+    <div>
+        <FAQComponent />
+    </div>
+);
+
+export default FAQPage;

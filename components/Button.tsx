@@ -9,9 +9,10 @@ type ButtonProps = {
     variant: 'primary' | 'secondary' | 'blue-900' | 'scrollToTop';
     full?: boolean;
     onClick?: () => void; // Optional onClick prop
+    children?: ReactNode; // Added children prop
 };
 
-const Button = ({ type = 'button', title, icon, variant, full = false, onClick }: ButtonProps) => {
+const Button = ({ type = 'button', title, icon, variant, full = false, onClick, children }: ButtonProps) => {
     const baseClasses = "flex items-center justify-center transition duration-300 transform hover:scale-105";
     let variantClasses = "";
 
@@ -48,6 +49,7 @@ const Button = ({ type = 'button', title, icon, variant, full = false, onClick }
         <button type={type} className={`${baseClasses} ${variantClasses} ${fullClasses} ${sizeClasses}`} onClick={handleClick}>
             {icon}
             {title}
+            {children} {/* Render children */}
         </button>
     );
 };
