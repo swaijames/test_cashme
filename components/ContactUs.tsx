@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { WOW } from 'wowjs';
 import 'animate.css/animate.min.css';
-import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { AiFillPhone, AiFillMail } from 'react-icons/ai';
 import { MdLocationOn } from 'react-icons/md';
 import Button from './Button';
@@ -23,20 +22,25 @@ const customStyles = `
     }
     .custom-input:focus, .custom-textarea:focus {
         border-color: #1e40af;
-        box-shadow: 0 0 0 3px rgba(44, 105, 239, 0.3);
+        box-shadow: 0 0 0 3px rgba(29, 83, 150, 0.3);
         outline: none;
     }
+    .map-container {
+        width: 100%;
+        height: 400px;
+        position: relative;
+    }
+    .map-image {
+        object-fit: cover;
+    }
+    .hero-background {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/banner.jpeg'); /* Ensure this path is correct */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        opacity: 1;
+    }
 `;
-
-const containerStyle = {
-    width: '100%',
-    height: '400px',
-};
-
-const center = {
-    lat: -6.818771081274225,
-    lng: 39.28672018058803,
-};
 
 const ContactUs = () => {
     useEffect(() => {
@@ -52,25 +56,20 @@ const ContactUs = () => {
             <div className="bg-white w-full">
                 {/* Hero Section */}
                 <section className="relative mt-20 bg-gray-800 text-white">
-                    <div className="absolute inset-0">
-                        <Image
-                            src="/assets/banner.jpeg" // Ensure this path is correct
-                            alt="Hero Background"
-                            layout="fill"
-                            objectFit="cover"
-                            className="opacity-35"
-                        />
-                    </div>
-                    <div className="relative z-10 py-16 sm:py-24 px-6 sm:px-16 lg:px-24 max-w-screen-xl mx-auto text-center wow animate__fadeInUp">
-                        <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold">Contact Us</h1>
-                        <p className="mt-4 text-lg sm:text-xl">We're here to help. Reach out to us anytime.</p>
+                    <div className="w-full h-64 sm:h-80 md:h-96 lg:h-128 hero-background">
+                        <div className="z-10 flex flex-col items-center justify-center h-full p-4 sm:p-6 md:p-8">
+                            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Contact Us</h1>
+                            <p className="mt-4 text-base sm:text-lg md:text-xl text-white text-center max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl">
+                                We're here to help. Reach out to us anytime.
+                            </p>
+                        </div>
                     </div>
                 </section>
 
                 {/* Contact Us Section */}
-                <section className="py-16 px-6 sm:px-16 max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center lg:h-screen">
+                <section className="py-16 px-6 sm:px-16 max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center lg:h-screen space-y-8 lg:space-y-0 lg:space-x-8">
                     {/* Contact Form Column */}
-                    <div className="w-full lg:w-1/2 mb-8 lg:mb-0 wow animate__fadeInLeft">
+                    <div className="w-full lg:w-1/2 mb-8 lg:mb-0 wow animate__fadeInLeft lg:mr-4">
                         <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Get in Touch</h2>
                         <p className="text-gray-700 mb-8">
                             Have a question or feedback? We're here to help. Send us a message, and we'll respond back.
@@ -117,15 +116,14 @@ const ContactUs = () => {
 
                     {/* Map and Contact Info Column */}
                     <div className="w-full lg:w-1/2 wow animate__fadeInRight">
-                        <LoadScript googleMapsApiKey="YOUR_GOOGLE_MAPS_API_KEY">
-                            <GoogleMap
-                                mapContainerStyle={containerStyle}
-                                center={center}
-                                zoom={14}
-                            >
-                                <Marker position={center} />
-                            </GoogleMap>
-                        </LoadScript>
+                        <div className="map-container">
+                            <Image
+                                src="/assets/map.png"
+                                alt="Map"
+                                layout="fill"
+                                className="map-image"
+                            />
+                        </div>
                         <div className="mt-8 space-y-4">
                             <div className="flex items-center">
                                 <MdLocationOn size={24} className="text-gray-700" />

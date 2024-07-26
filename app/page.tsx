@@ -11,6 +11,7 @@ import { testimonials } from '../constant';
 import TestimonialSection from '../components/TestimonialSection';
 import OurPartners from '../components/OurPartners';
 import OurTeam from '../components/OurTeam';
+import HowItsWork from '../components/HowItsWork';
 
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <JoinSection />
       <FeatureSection1 />
       <StatsSection />
+      <HowItsWork />
       <FeatureSection2 />
       <ServiceSection />
       <ValueGood />

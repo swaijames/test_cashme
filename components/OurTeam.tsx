@@ -27,7 +27,18 @@ const OurTeam: React.FC = () => {
                 <Swiper
                     modules={[Navigation, Pagination, Autoplay]}
                     spaceBetween={20}
-                    slidesPerView={3}
+                    slidesPerView={1} // Default to 1 column
+                    breakpoints={{
+                        640: {
+                            slidesPerView: 1, // 1 column on small devices
+                        },
+                        768: {
+                            slidesPerView: 2, // 2 columns on medium devices
+                        },
+                        1024: {
+                            slidesPerView: 3, // 3 columns on large devices
+                        },
+                    }}
                     navigation
                     pagination={{ clickable: true }}
                     autoplay={{ delay: 5000 }}
@@ -36,32 +47,25 @@ const OurTeam: React.FC = () => {
                     {teamMembers.map((member, index) => (
                         <SwiperSlide key={index} className="flex justify-center items-center px-2">
                             <div className="w-full bg-gray-100 text-gray-900 rounded-lg p-6 shadow-md max-w-sm flex flex-col items-center text-center wow animate__animated animate__fadeInUp">
-                                <div className="relative w-32 h-32 mb-4">
+                                <div className="relative w-40 h-40 mb-4">
                                     <Image
                                         src={member.image}
                                         alt={member.name}
                                         layout="fill"
                                         className="rounded-full object-cover"
+                                        quality={100}
                                     />
                                 </div>
                                 <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
                                 <p className="text-gray-600 mb-2">{member.role}</p>
                                 <div className="flex justify-center space-x-4 text-2xl mb-4">
-                                    {member.social.twitter && (
-                                        <a href={member.social.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
-                                            <FaTwitter />
-                                        </a>
-                                    )}
                                     {member.social.linkedin && (
                                         <a href={member.social.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
                                             <FaLinkedin />
                                         </a>
                                     )}
-                                    {member.social.instagram && (
-                                        <a href={member.social.instagram} target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900">
-                                            <FaInstagram />
-                                        </a>
-                                    )}
+
+
                                 </div>
                             </div>
                         </SwiperSlide>

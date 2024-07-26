@@ -1,18 +1,27 @@
-// components/Button.tsx
 "use client"; // Add this directive at the top
 import React, { ReactNode } from 'react';
 
 type ButtonProps = {
-    type?: 'button' | 'submit';
+    type?: 'button' | 'submit'; 
     title?: string; // title is optional for icon-only buttons
     icon?: ReactNode; // Changed from string to ReactNode
     variant: 'primary' | 'secondary' | 'blue-900' | 'scrollToTop';
     full?: boolean;
     onClick?: () => void; // Optional onClick prop
+    disabled?: boolean; // Add disabled prop
     children?: ReactNode; // Added children prop
 };
 
-const Button = ({ type = 'button', title, icon, variant, full = false, onClick, children }: ButtonProps) => {
+const Button = ({ 
+    type = 'button', 
+    title, 
+    icon, 
+    variant, 
+    full = false, 
+    onClick, 
+    disabled = false, // Default value for disabled
+    children 
+}: ButtonProps) => {
     const baseClasses = "flex items-center justify-center transition duration-300 transform hover:scale-105";
     let variantClasses = "";
 
@@ -35,18 +44,21 @@ const Button = ({ type = 'button', title, icon, variant, full = false, onClick, 
     }
 
     const fullClasses = full ? "w-full" : "";
-
-    // Rounded button size
-    const sizeClasses = variant === 'scrollToTop' ? "w-12 h-12 rounded-full" : "px-6 py-3 rounded-md"; // Circular size for scrollToTop variant
+    const sizeClasses = variant === 'scrollToTop' ? "w-12 h-12 rounded-full" : "px-6 py-3 rounded-md";
 
     const handleClick = () => {
-        if (onClick) {
+        if (onClick && !disabled) {
             onClick();
         }
     };
 
     return (
-        <button type={type} className={`${baseClasses} ${variantClasses} ${fullClasses} ${sizeClasses}`} onClick={handleClick}>
+        <button 
+            type={type} 
+            className={`${baseClasses} ${variantClasses} ${fullClasses} ${sizeClasses} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`} 
+            onClick={handleClick}
+            disabled={disabled} // Apply the disabled attribute
+        >
             {icon}
             {title}
             {children} {/* Render children */}

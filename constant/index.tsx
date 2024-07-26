@@ -66,15 +66,11 @@ const Features1 = [
     icon: ExclamationCircleIcon,
   },
   {
-    name: 'Avoid waiting 30, 45 or 60 days to get paid',
+    name: 'Avoid waiting 30, 60 or 90 days to get paid',
     description: 'Get paid faster by advancing payments for your invoices.',
     icon: ClockIcon,
   },
-  {
-    name: 'Don’t let late payers slow you down',
-    description: 'Ensure steady cash flow regardless of late-paying customers.',
-    icon: UserIcon,
-  }
+
 ];
 
 export { Features1 };
@@ -127,43 +123,43 @@ export const testimonials = [
 ];
 export const teamMembers = [
   {
-    name: 'Marta Smith',
-    role: 'Frontend Developer',
-    image: '/assets/user.png',
+    name: 'Gumodoka M.Mehuna',
+    role: 'CO founder & Cheaf Executive Officer',
+    image: '/assets/team/gumo.jpg',
     social: {
-      twitter: 'https://twitter.com/darrenrandolph',
+
       linkedin: 'https://linkedin.com/in/martasmith',
-      instagram: 'https://instagram.com/ayatblack',
+
     },
   },
   {
-    name: 'Darren Randolph',
-    role: 'Marketing Expert',
-    image: '/assets/user.png',
+    name: 'Inshmael Oneya',
+    role: 'Head of Credit Risk & Compliance',
+    image: '/assets/team/oneya.jpg',
     social: {
-      twitter: 'https://twitter.com/darrenrandolph',
+
       linkedin: 'https://linkedin.com/in/darrenrandolph',
-      instagram: 'https://instagram.com/ayatblack',
+
     },
   },
   {
-    name: 'Darren Randolph',
-    role: 'Marketing Expert',
-    image: '/assets/user.png',
+    name: 'Ombeni Uhuru Ntenzi',
+    role: 'Heading of Trading & Investment',
+    image: '/assets/team/omben.jpg',
     social: {
-      twitter: 'https://twitter.com/darrenrandolph',
+
       linkedin: 'https://linkedin.com/in/darrenrandolph',
-      instagram: 'https://instagram.com/ayatblack',
+
     },
   },
   {
-    name: 'Ayat Black',
-    role: 'Web Designer',
+    name: 'Phoibe Manase',
+    role: 'Head of Finance',
     image: '/assets/user.png',
     social: {
-      twitter: 'https://twitter.com/darrenrandolph',
+
       linkedin: 'https://linkedin.com/in/ayatblack',
-      instagram: 'https://instagram.com/ayatblack',
+
     },
   },
 ];
