@@ -31,3 +31,10 @@ body {
     text-wrap: balance;
   }
 }
+.scroll-to-top-button {
+  position: fixed;
+  bottom: 80px; /* Adjust to provide space for the Chaty widget */
+  right: 20px;
+  z-index: 1000;
+}
+

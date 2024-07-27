@@ -2,7 +2,7 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { useState, useCallback, createContext, ReactNode } from 'react';
+import { useState, useCallback, createContext } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import Image from 'next/image';
 import { NAV_LINKS } from '@/constant';
@@ -13,11 +13,7 @@ export const MenuContext = createContext({
   toggleMenu: () => {}
 });
 
-type NavbarProps = {
-  children: ReactNode;
-};
-
-const Navbar = ({ children }: NavbarProps) => {
+const Navbar = () => {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -82,7 +78,6 @@ const Navbar = ({ children }: NavbarProps) => {
           </div>
         )}
       </nav>
-      {children}
     </MenuContext.Provider>
   );
 };

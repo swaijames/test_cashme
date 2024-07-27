@@ -1,37 +1,41 @@
-import { NextApiRequest, NextApiResponse } from 'next';
+import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method === 'POST') {
-    const { firstName, lastName, mobileNumber, email, message } = req.body;
+type Data = {
+    message: string;
+};
 
-    const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: process.env.GMAIL_USER,
-        pass: process.env.GMAIL_PASS,
-      },
-    });
+export default async function handler(
+    req: NextApiRequest,
+    res: NextApiResponse<Data>
+) {
+    if (req.method === 'POST') {
+        const { firstName, lastName, mobileNumber, email, message } = req.body;
 
-    const mailOptions = {
-      from: email,
-      to: 'rodgers.itslltd@gmail.com',
-      subject: `New contact form submission from ${firstName} ${lastName}`,
-      text: `You have a new contact form submission:
-      Name: ${firstName} ${lastName}
-      Mobile Number: ${mobileNumber}
-      Email: ${email}
-      Message: ${message}`,
-    };
+        // Setup nodemailer transport
+        const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+                user: process.env.EMAIL_USER, // Your Gmail account from environment variable
+                pass: process.env.EMAIL_PASS, // Your Gmail account password or app-specific password from environment variable
+            },
+        });
 
-    try {
-      await transporter.sendMail(mailOptions);
-      res.status(200).json({ success: true });
-    } catch (error) {
-      console.error(error);
-      res.status(500).json({ success: false, error: 'Failed to send email' });
+        const mailOptions = {
+            from: process.env.EMAIL_USER,
+            to: process.env.EMAIL_USER,
+            subject: 'New Contact Us Form Submission',
+            text: `First Name: ${firstName}\nLast Name: ${lastName}\nMobile Number: ${mobileNumber}\nEmail: ${email}\nMessage: ${message}`,
+        };
+
+        try {
+            await transporter.sendMail(mailOptions);
+            res.status(200).json({ message: 'Email sent successfully' });
+        } catch (error) {
+            console.error('Error sending email:', error);
+            res.status(500).json({ message: 'Error sending email' });
+        }
+    } else {
+        res.status(405).json({ message: 'Method Not Allowed' });
     }
-  } else {
-    res.status(405).json({ success: false, error: 'Method not allowed' });
-  }
 }

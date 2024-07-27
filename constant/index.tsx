@@ -90,37 +90,53 @@ export const stats = [
 ];
 
 
+// content/index.tsx
+
 export const testimonials = [
   {
-    name: "John Doe",
-    role: "Web Developer",
-    text: "Maecenas auctor, quam eget tincidunt pretium, felis diam semper turpis, sed scelerisque diam libero facilisis libero. Quisque vitae semper metus. Aliquam eu dui aliquam, faucibus metus quis, elementum nunc.",
-    image: "/assets/user.png",
-    rating: 5
+      name: "John Doe",
+      role: "Financial Analyst",
+      text: "CashMe Tanzania's platform offers a comprehensive solution for accessing quick funds. Their analytical tools and support have been invaluable for our financial operations.",
+      image: "/path-to-image/john-doe.jpg",
+      rating: 5,
   },
   {
-    name: "Jane Smith",
-    role: "Designer",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/assets/user.png",
-    rating: 4
+      name: "Jane Smith",
+      role: "Economist",
+      text: "The efficiency of CashMe Tanzania in handling financial transactions is impressive. Their platform provides a reliable way to manage and obtain capital quickly.",
+      image: "/path-to-image/jane-smith.jpg",
+      rating: 4,
   },
   {
-    name: "John Doe",
-    role: "Web Developer",
-    text: "Maecenas auctor, quam eget tincidunt pretium, felis diam semper turpis, sed scelerisque diam libero facilisis libero. Quisque vitae semper metus. Aliquam eu dui aliquam, faucibus metus quis, elementum nunc.",
-    image: "/assets/user.png",
-    rating: 5
+      name: "Mark Johnson",
+      role: "Investment Manager",
+      text: "As an investment manager, I appreciate how CashMe Tanzania streamlines the funding process. Their system has been essential in facilitating smooth investments.",
+      image: "/path-to-image/mark-johnson.jpg",
+      rating: 5,
   },
   {
-    name: "Jane Smith",
-    role: "Designer",
-    text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-    image: "/assets/user.png",
-    rating: 4
+      name: "Emily Davis",
+      role: "Banking Executive",
+      text: "CashMe Tanzania’s innovative approach to funding and its user-friendly interface have greatly improved our ability to manage financial transactions efficiently.",
+      image: "/path-to-image/emily-davis.jpg",
+      rating: 5,
   },
-  // Add more testimonials as needed
+  {
+      name: "Chris Brown",
+      role: "Financial Consultant",
+      text: "The speed and reliability of CashMe Tanzania’s platform have significantly enhanced our consulting services. Their support team is highly responsive and professional.",
+      image: "/path-to-image/chris-brown.jpg",
+      rating: 4,
+  },
+  {
+      name: "Anna Wilson",
+      role: "Economic Advisor",
+      text: "CashMe Tanzania provides a robust solution for businesses looking for quick financial solutions. Their platform is a game-changer for economic advisory roles.",
+      image: "/path-to-image/anna-wilson.jpg",
+      rating: 5,
+  },
 ];
+
 export const teamMembers = [
   {
     name: 'Gumodoka M.Mehuna',

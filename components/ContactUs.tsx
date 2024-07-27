@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 "use client";
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { WOW } from 'wowjs';
 import 'animate.css/animate.min.css';
@@ -42,13 +42,57 @@ const customStyles = `
     }
 `;
 
-const ContactUs = () => {
+const ContactUs: React.FC = () => {
+    const [formData, setFormData] = useState({
+        firstName: '',
+        lastName: '',
+        mobileNumber: '',
+        email: '',
+        message: ''
+    });
+
+    const [statusMessage, setStatusMessage] = useState('');
+
     useEffect(() => {
         new WOW({
             animateClass: 'animate__animated', // default
             offset: 0,
         }).init();
     }, []);
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        try {
+            const res = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+            const result = await res.json();
+            if (res.status === 200) {
+                setStatusMessage('Email sent successfully');
+                setFormData({
+                    firstName: '',
+                    lastName: '',
+                    mobileNumber: '',
+                    email: '',
+                    message: ''
+                });
+            } else {
+                setStatusMessage('Error sending email');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setStatusMessage('Error sending email');
+        }
+    };
 
     return (
         <>
@@ -74,19 +118,23 @@ const ContactUs = () => {
                         <p className="text-gray-700 mb-8">
                             Have a question or feedback? We're here to help. Send us a message, and we'll respond back.
                         </p>
-                        <form className="space-y-4">
+                        <form className="space-y-4" onSubmit={handleSubmit}>
                             <div className="flex space-x-4">
                                 <input
                                     type="text"
                                     name="firstName"
                                     placeholder="First Name"
                                     className="custom-input w-1/2"
+                                    value={formData.firstName}
+                                    onChange={handleChange}
                                 />
                                 <input
                                     type="text"
                                     name="lastName"
                                     placeholder="Last Name"
                                     className="custom-input w-1/2"
+                                    value={formData.lastName}
+                                    onChange={handleChange}
                                 />
                             </div>
                             <input
@@ -94,17 +142,23 @@ const ContactUs = () => {
                                 name="mobileNumber"
                                 placeholder="Mobile Number"
                                 className="custom-input w-full"
+                                value={formData.mobileNumber}
+                                onChange={handleChange}
                             />
                             <input
                                 type="email"
                                 name="email"
                                 placeholder="Email Address"
                                 className="custom-input w-full"
+                                value={formData.email}
+                                onChange={handleChange}
                             />
                             <textarea
                                 name="message"
                                 placeholder="Your Message"
                                 className="custom-textarea w-full h-32"
+                                value={formData.message}
+                                onChange={handleChange}
                             />
                             <Button
                                 type="submit"
@@ -112,6 +166,7 @@ const ContactUs = () => {
                                 title="Send Details"
                             />
                         </form>
+                        {statusMessage && <p className="mt-4 text-gray-700">{statusMessage}</p>}
                     </div>
 
                     {/* Map and Contact Info Column */}
