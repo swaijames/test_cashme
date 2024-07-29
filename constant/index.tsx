@@ -171,7 +171,7 @@ export const teamMembers = [
   {
     name: 'Phoibe Manase',
     role: 'Head of Finance',
-    image: '/assets/user.png',
+    image: '/assets/team/madam.jpg',
     social: {
 
       linkedin: 'https://linkedin.com/in/ayatblack',

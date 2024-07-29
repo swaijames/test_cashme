@@ -1,26 +1,39 @@
+"use client"
+import { useRef } from 'react';
 import Script from 'next/script';
+import dynamic from 'next/dynamic';
 import Hero from '../components/Hero';
 import FeatureSection1 from '../components/FeatureSection1';
 import FeatureSection2 from '../components/FeatureSection2';
 import JoinSection from '../components/JoinSection';
 import ServiceSection from '../components/ServiceSection';
-import ScrollToTopButton from '../components/ScrollToTopButton';
 import ValueGood from '../components/ValueGood';
 import StatsSection from '../components/StatsSection';
 import { testimonials } from '../constant';
 import TestimonialSection from '../components/TestimonialSection';
 import OurPartners from '../components/OurPartners';
-import OurTeam from '../components/OurTeam';
 import HowItsWork from '../components/HowItsWork';
 
+// Dynamic import with no SSR
+const ScrollToTopButton = dynamic(() => import('../components/ScrollToTopButton'), { ssr: false });
+const OurTeam = dynamic(() => import('../components/OurTeam'), { ssr: false });
+
 export default function Home() {
+  const howItsWorkRef = useRef<HTMLDivElement>(null);
+
+  const scrollToHowItsWork = () => {
+    howItsWorkRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section>
-      <Hero />
+      <Hero scrollToHowItsWork={scrollToHowItsWork} />
       <JoinSection />
       <FeatureSection1 />
       <StatsSection />
-      <HowItsWork />
+      <div ref={howItsWorkRef}>
+        <HowItsWork />
+      </div>
       <FeatureSection2 />
       <ServiceSection />
       <ValueGood />
@@ -29,12 +42,6 @@ export default function Home() {
       <OurTeam />
       <ScrollToTopButton />
       
-      {/* Add the Chatway widget script */}
-      <Script
-        id="chatway"
-        src="https://cdn.chatway.app/widget.js?id=UpIbbYh3qlTZ"
-        strategy="afterInteractive"
-      />
       <Script
         id="pixel-chaty"
         src="https://cdn.chaty.app/pixel.js?id=YWPQELSx"
