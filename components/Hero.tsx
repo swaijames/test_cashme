@@ -148,5 +148,6 @@ const Hero: React.FC = React.memo(() => {
         </section>
     );
 });
+Hero.displayName = "Hero";
 
 export default Hero;
