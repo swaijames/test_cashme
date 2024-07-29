@@ -10,13 +10,25 @@ const config: Config = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      animation: {
+        fadeInUp: 'fadeInUp 1s ease-out',
+        // Add more custom animations if needed
+      },
+      keyframes: {
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(10px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        // Define more keyframes for other animations if needed
       },
     },
   },
   plugins: [
-    require('daisyui')
+    require('daisyui'),
+    // Include other plugins if necessary
   ],
 };
+
 export default config;

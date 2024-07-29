@@ -6,6 +6,7 @@ import ClientSideComponents from './utils/ClientSideComponents';
 
 const inter = Inter({ subsets: ["latin"] });
 
+// Dynamically import Navbar and Footer components
 const Navbar = React.lazy(() => import('../components/Navbar'));
 const Footer = React.lazy(() => import('../components/Footer'));
 

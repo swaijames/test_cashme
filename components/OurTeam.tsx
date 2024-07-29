@@ -38,6 +38,10 @@ const OurTeam: React.FC = () => {
                         1024: {
                             slidesPerView: 3, // 3 columns on large devices
                         },
+                        1280: {
+                            slidesPerView: 3, // 3 columns on extra-large devices
+                            spaceBetween: 30, // Add extra space between slides on xl devices
+                        },
                     }}
                     navigation
                     pagination={{ clickable: true }}
@@ -64,8 +68,6 @@ const OurTeam: React.FC = () => {
                                             <FaLinkedin />
                                         </a>
                                     )}
-
-
                                 </div>
                             </div>
                         </SwiperSlide>

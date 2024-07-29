@@ -5,13 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faInstagram, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
 import Link from 'next/link';
-import { FaGithub, FaTwitter, FaLinkedin, FaGlobe, FaInstagram } from 'react-icons/fa';
-import { WOW } from 'wowjs';
 import 'animate.css/animate.min.css';
 
 const Footer: React.FC = () => {
     useEffect(() => {
-        new WOW({ live: false }).init();
+        // Initialize WOW.js animations
+        const WOW = require('wowjs'); // Dynamically import WOW.js
+        new WOW.WOW({ live: false }).init();
     }, []);
 
     return (
@@ -75,8 +75,7 @@ const Footer: React.FC = () => {
                 >
                     <p className="text-gray-600 mb-4 md:mb-0">©CashMe Tanzania 2024, All rights reserved.</p>
                     <div className="flex space-x-4">
-
-                        <Link href="#" className="text-gray-600 hover:text-gray-900 cursor-pointer">
+                        <Link href="https://x.com/cashmetanzania" className="text-gray-600 hover:text-gray-900 cursor-pointer">
                             <FontAwesomeIcon icon={faXTwitter} size="2x" />
                         </Link>
                         <Link href="https://www.instagram.com/p/C5YoBGHtnbq/?igsh=MWFzYWh0ZXM3Mmg1Mw== " className="text-gray-600 hover:text-gray-900 cursor-pointer">
@@ -85,7 +84,7 @@ const Footer: React.FC = () => {
                         <Link href="https://www.linkedin.com/company/cashmetanzania/posts?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3B7P%2BReuTkQxOufM6nrhmHkg%3D%3D" className="text-gray-600 hover:text-gray-900 cursor-pointer">
                             <FontAwesomeIcon icon={faLinkedin} size="2x" />
                         </Link>
-                        <Link href="https://youtube.com/c/yourchannel" className="text-gray-600 hover:text-gray-900 cursor-pointer">
+                        <Link href="https://www.youtube.com/@cashmetanzania6826" className="text-gray-600 hover:text-gray-900 cursor-pointer">
                             <FontAwesomeIcon icon={faYoutube} size="2x" />
                         </Link>
                     </div>
