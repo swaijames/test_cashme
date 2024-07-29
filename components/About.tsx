@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useContext } from "react";
 import Image from "next/image";
-import { WOW } from "wowjs";
+import dynamic from 'next/dynamic';
 import "animate.css/animate.min.css";
 import { MenuContext } from "./Navbar"; // Adjust the path as needed
 
@@ -22,9 +22,9 @@ const About = () => {
   const { isMenuOpen } = useContext(MenuContext);
 
   useEffect(() => {
-    // Check if running in the browser environment
     if (typeof window !== "undefined") {
-      new WOW({
+      const WOW = require('wowjs');
+      new WOW.WOW({
         animateClass: "animate__animated", // default
         offset: 0,
       }).init();
@@ -90,4 +90,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default dynamic(() => Promise.resolve(About), { ssr: false });
