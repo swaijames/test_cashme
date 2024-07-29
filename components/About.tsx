@@ -22,10 +22,13 @@ const About = () => {
   const { isMenuOpen } = useContext(MenuContext);
 
   useEffect(() => {
-    new WOW({
-      animateClass: "animate__animated", // default
-      offset: 0,
-    }).init();
+    // Check if running in the browser environment
+    if (typeof window !== "undefined") {
+      new WOW({
+        animateClass: "animate__animated", // default
+        offset: 0,
+      }).init();
+    }
   }, []);
 
   return (
