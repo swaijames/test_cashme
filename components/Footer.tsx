@@ -5,13 +5,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faXTwitter, faInstagram, faLinkedin, faYoutube } from '@fortawesome/free-brands-svg-icons';
 import Image from 'next/image';
 import Link from 'next/link';
+import { FaGithub, FaTwitter, FaLinkedin, FaGlobe, FaInstagram } from 'react-icons/fa';
+import { WOW } from 'wowjs';
 import 'animate.css/animate.min.css';
 
 const Footer: React.FC = () => {
     useEffect(() => {
-        // Initialize WOW.js animations
-        const WOW = require('wowjs'); // Dynamically import WOW.js
-        new WOW.WOW({ live: false }).init();
+        new WOW({ live: false }).init();
     }, []);
 
     return (
@@ -75,6 +75,7 @@ const Footer: React.FC = () => {
                 >
                     <p className="text-gray-600 mb-4 md:mb-0">©CashMe Tanzania 2024, All rights reserved.</p>
                     <div className="flex space-x-4">
+
                         <Link href="https://x.com/cashmetanzania" className="text-gray-600 hover:text-gray-900 cursor-pointer">
                             <FontAwesomeIcon icon={faXTwitter} size="2x" />
                         </Link>

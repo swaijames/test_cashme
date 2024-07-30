@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 import { MantineProvider } from '@mantine/core';
 import './globals.css';
 import ClientSideComponents from './utils/ClientSideComponents';
+import  Script  from 'next/script';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -38,6 +39,11 @@ export default function RootLayout({
             </ClientSideComponents>
           </React.StrictMode>
         </MantineProvider>
+        {/* Example of deferring a non-critical script */}
+        <Script
+          src="https://example.com/non-critical-script.js"
+          strategy="lazyOnload"
+        />
       </body>
     </html>
   );

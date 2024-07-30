@@ -2,9 +2,9 @@
 
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import dynamic from 'next/dynamic';
-import 'animate.css/animate.min.css';
 import { FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
+// Dynamic import for Button component
 const Button = dynamic(() => import('./Button'), { ssr: false });
 
 const Hero: React.FC<{ scrollToHowItsWork: () => void }> = React.memo(({ scrollToHowItsWork }) => {
@@ -69,7 +69,7 @@ const Hero: React.FC<{ scrollToHowItsWork: () => void }> = React.memo(({ scrollT
     return (
         <section className="bg-white pt-24 mt-5 md:pt-32 pb-20">
             <div className="container mx-auto px-6 flex flex-col items-center justify-center text-center md:flex-row md:justify-between md:text-left">
-                <div className="w-full md:flex-1 mt-[-4%] mb-12 md:mb-0 wow animate__animated animate__fadeInLeft">
+                <div className="w-full md:flex-1 mt-[-4%] mb-12 md:mb-0">
                     <h1 className="text-4xl font-extrabold text-gray-900 md:text-5xl leading-tight">
                         Exclusive Platform For <span className="text-blue-800">Easily invest</span> and cash your Invoice.
                     </h1>
@@ -83,7 +83,7 @@ const Hero: React.FC<{ scrollToHowItsWork: () => void }> = React.memo(({ scrollT
                         <Button type="button" title="How We Work?" variant="blue-900" onClick={scrollToHowItsWork} />
                     </div>
                 </div>
-                <div className="w-full md:flex-1 flex justify-center wow animate__animated animate__fadeInRight">
+                <div className="w-full md:flex-1 flex justify-center">
                     <div className="relative w-full h-auto p-6 bg-gray-100 rounded-lg shadow-lg">
                         <h2 className="text-2xl font-bold text-gray-900 mb-4">Invoice Discount Calculator</h2>
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">

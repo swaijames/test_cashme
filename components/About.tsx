@@ -1,14 +1,11 @@
 "use client";
-import React, { useEffect, useContext } from "react";
+
+import React, { useContext } from "react";
 import Image from "next/image";
 import dynamic from 'next/dynamic';
-import "animate.css/animate.min.css";
 import { MenuContext } from "./Navbar"; // Adjust the path as needed
 
 const customStyles = `
-    .wow {
-        animation-duration: 0.5s; /* Set your custom animation duration */
-    }
     .hero-background {
         background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/banner.jpeg'); /* Ensure this path is correct */
         background-size: cover;
@@ -20,16 +17,6 @@ const customStyles = `
 
 const About = () => {
   const { isMenuOpen } = useContext(MenuContext);
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const WOW = require('wowjs');
-      new WOW.WOW({
-        animateClass: "animate__animated", // default
-        offset: 0,
-      }).init();
-    }
-  }, []);
 
   return (
     <>
@@ -48,7 +35,7 @@ const About = () => {
         {/* What We Do Section */}
         <section className="py-16 px-6 sm:px-16 max-w-screen-xl mx-auto flex flex-col lg:flex-row items-center lg:h-screen">
           {/* Image Column */}
-          <div className="flex items-center justify-center w-full lg:w-1/2 mb-8 lg:mb-0 h-full wow animate__fadeInLeft">
+          <div className="flex items-center justify-center w-full lg:w-1/2 mb-8 lg:mb-0 h-full">
             <Image
               src="/assets/Illustration1.png" // Replace with your image path
               alt="What We Do"
@@ -59,7 +46,7 @@ const About = () => {
           </div>
 
           {/* Mission and Vision Column */}
-          <div className="flex flex-col justify-center w-full lg:w-1/2 lg:pl-16 h-full wow animate__fadeInRight">
+          <div className="flex flex-col justify-center w-full lg:w-1/2 lg:pl-16 h-full">
             <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">What We Do</h2>
             <p className="text-gray-700 mb-8">
               CashMe Tanzania is an online marketplace for Invoice Discounting.
