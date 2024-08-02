@@ -1,4 +1,4 @@
-import { ArrowPathIcon, CloudArrowUpIcon, FingerPrintIcon, LockClosedIcon, CurrencyDollarIcon, ChartBarIcon, ExclamationCircleIcon, ClockIcon, UserIcon } from '@heroicons/react/24/outline'
+import { CurrencyDollarIcon, ChartBarIcon, ExclamationCircleIcon, ClockIcon } from '@heroicons/react/24/outline';
 import {
   PaperAirplaneIcon,
   CheckCircleIcon,
@@ -149,7 +149,7 @@ export const teamMembers = [
     },
   },
   {
-    name: 'Inshmael Oneya',
+    name: 'Ishmael Oneya',
     role: 'Head of Credit Risk & Compliance',
     image: '/assets/team/oneya.jpg',
     social: {
@@ -171,7 +171,7 @@ export const teamMembers = [
   {
     name: 'Phoibe Manase',
     role: 'Head of Finance',
-    image: '/assets/team/madam.jpg',
+    image: '/assets/team/madam2.jpg',
     social: {
 
       linkedin: 'https://linkedin.com/in/ayatblack',

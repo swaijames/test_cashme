@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
 import { Features2 } from '@/constant';
 import { WOW } from 'wowjs';

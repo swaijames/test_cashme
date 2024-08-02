@@ -1,8 +1,6 @@
-"use client";
-
+"use client";;
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import dynamic from 'next/dynamic';
-import { FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
 
 // Dynamic import for Button component
 const Button = dynamic(() => import('./Button'), { ssr: false });
@@ -70,8 +68,8 @@ const Hero: React.FC<{ scrollToHowItsWork: () => void }> = React.memo(({ scrollT
         <section className="bg-white pt-24 mt-5 md:pt-32 pb-20">
             <div className="container mx-auto px-6 flex flex-col items-center justify-center text-center md:flex-row md:justify-between md:text-left">
                 <div className="w-full md:flex-1 mt-[-4%] mb-12 md:mb-0">
-                    <h1 className="text-4xl font-extrabold text-gray-900 md:text-5xl leading-tight">
-                        Exclusive Platform For <span className="text-blue-800">Easily invest</span> and cash your Invoice.
+                    <h1 className="text-4xl font-extrabold text-gray-900 md:text-5xl leading-tight">                    
+                       Transform unpaid invoices into  <span className="text-blue-800">immediate capital. </span> 
                     </h1>
                     <p className="mt-4 text-gray-600">
                         We are <span className="text-blue-600 font-bold">CashMe Tanzania</span>, an online marketplace for Invoice Discounting.

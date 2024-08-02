@@ -58,6 +58,7 @@ const OurTeam: React.FC = () => {
                                         layout="fill"
                                         className="rounded-full object-cover"
                                         quality={100}
+                                        
                                     />
                                 </div>
                                 <h3 className="text-xl font-semibold mb-2">{member.name}</h3>

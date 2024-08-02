@@ -46,7 +46,7 @@ export default function Home() {
       <Script
         id="pixel-chaty"
         src="https://cdn.chaty.app/pixel.js?id=YWPQELSx"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
     </section>
   );

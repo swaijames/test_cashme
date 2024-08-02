@@ -28,7 +28,7 @@ const ValueGood = () => {
                         <div className="flex items-center justify-center wow animate__animated animate__fadeInLeft">
                             <Image
                                 alt="goals-and-values-image"
-                                src="/assets/team1-min.jpg"
+                                src="/assets/mage2-min.jpg"
                                 width={700}
                                 height={700}
                                 className="w-[583px] h-[480px] max-w-full rounded-xl shadow-xl ring-1 ring-blue-600/10"
