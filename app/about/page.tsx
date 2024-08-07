@@ -1,12 +1,10 @@
 import React from 'react';
-import dynamic from 'next/dynamic';
+import About from '../../components/About';
+import StatsSection from '@/components/StatsSection';
+import OurPartners from '../../components/OurPartners';
+import OurTeam from '@/components/OurTeam';
 
-// Dynamic imports with no SSR
-const About = dynamic(() => import('../../components/About'), { ssr: false });
-const StatsSection = dynamic(() => import('@/components/StatsSection'), { ssr: false });
-const OurPartners = dynamic(() => import('../../components/OurPartners'), { ssr: false });
-const OurTeam = dynamic(() => import('@/components/OurTeam'), { ssr: false });
-const ScrollToTopButton = dynamic(() => import('../../components/ScrollToTopButton'), { ssr: false });
+
 
 const Page: React.FC = () => {
     return (
@@ -15,7 +13,6 @@ const Page: React.FC = () => {
             <StatsSection />
             <OurPartners />
             <OurTeam />
-            <ScrollToTopButton />
         </div>
     );
 };

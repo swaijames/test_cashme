@@ -1,7 +1,7 @@
-import dynamic from 'next/dynamic';
+
 import ServiceSection from '@/components/ServiceSection'
 import Servicespage from '@/components/Servicespage'
-const ScrollToTopButton = dynamic(() => import('../../components/ScrollToTopButton'), { ssr: false });
+
 import React from 'react'
 
 const page: React.FC = () => {
@@ -10,7 +10,7 @@ const page: React.FC = () => {
         <div>
             <Servicespage />
             <ServiceSection />
-            <ScrollToTopButton />
+            
         </div>
     )
 }

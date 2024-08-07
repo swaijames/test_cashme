@@ -1,30 +1,24 @@
-'use client';
-
-import { useRef } from 'react';
 import Script from 'next/script';
-import dynamic from 'next/dynamic';
 import { testimonials } from '../constant';
-
-// Dynamically import components with no server-side rendering (SSR)
-const Hero = dynamic(() => import('../components/Hero'), { ssr: false });
-const FeatureSection1 = dynamic(() => import('../components/FeatureSection1'), { ssr: false });
-const FeatureSection2 = dynamic(() => import('../components/FeatureSection2'), { ssr: false });
-const JoinSection = dynamic(() => import('../components/JoinSection'), { ssr: false });
-const ServiceSection = dynamic(() => import('../components/ServiceSection'), { ssr: false });
-const ValueGood = dynamic(() => import('../components/ValueGood'), { ssr: false });
-const StatsSection = dynamic(() => import('../components/StatsSection'), { ssr: false });
-const TestimonialSection = dynamic(() => import('../components/TestimonialSection'), { ssr: false });
-const OurPartners = dynamic(() => import('../components/OurPartners'), { ssr: false });
-const HowItsWork = dynamic(() => import('../components/HowItsWork'), { ssr: false });
-const ScrollToTopButton = dynamic(() => import('../components/ScrollToTopButton'), { ssr: false });
-const OurTeam = dynamic(() => import('../components/OurTeam'), { ssr: false });
+import Hero from '../components/Hero';
+import FeatureSection1 from '../components/FeatureSection1';
+import FeatureSection2 from '../components/FeatureSection2';
+import JoinSection from '../components/JoinSection';
+import ServiceSection from '../components/ServiceSection';
+import ValueGood from '../components/ValueGood';
+import StatsSection from '../components/StatsSection';
+import TestimonialSection from '../components/TestimonialSection';
+import OurPartners from '../components/OurPartners';
+import HowItsWork from '../components/HowItsWork';
+import ScrollToTopButton from '../components/ScrollToTopButton';
+import OurTeam from '../components/OurTeam';
+import ScrollHandler from '../components/ScrollHandler';
 
 const Page: React.FC = () => {
-  const howItsWorkRef = useRef<HTMLDivElement>(null);
-
   const scrollToHowItsWork = () => {
-    if (typeof window !== 'undefined' && howItsWorkRef.current) {
-      howItsWorkRef.current.scrollIntoView({ behavior: 'smooth' });
+    const element = document.getElementById('how-its-work');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -34,9 +28,10 @@ const Page: React.FC = () => {
       <JoinSection />
       <FeatureSection1 />
       <StatsSection />
-      <div ref={howItsWorkRef}>
+      <div id="how-its-work">
         <HowItsWork />
       </div>
+      <ScrollHandler scrollToHowItsWork={scrollToHowItsWork} />
       <FeatureSection2 />
       <ServiceSection />
       <ValueGood />
