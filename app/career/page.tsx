@@ -1,15 +1,16 @@
 import dynamic from 'next/dynamic';
-import React from 'react'
+import React from 'react';
 import CareerSection from '../../components/Career';
+
 const ScrollToTopButton = dynamic(() => import('../../components/ScrollToTopButton'), { ssr: false });
 
-const page: React.FC = () => {
+const Page: React.FC = () => {
     return (
         <div>
-            <CareerSection/>
+            <CareerSection />
             <ScrollToTopButton />
         </div>
-    )
-}
+    );
+};
 
-export default page
+export default Page;

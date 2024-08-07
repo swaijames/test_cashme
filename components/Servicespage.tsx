@@ -1,10 +1,10 @@
-"use client"
-import React from 'react'
+'use client';
 
+import React, { useEffect, useState } from 'react';
 
 const customStyles = `
     .hero-background {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/banner.jpeg'); /* Ensure this path is correct */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/service.jpg'); /* Ensure this path is correct */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -13,6 +13,14 @@ const customStyles = `
 `;
 
 const Servicespage = () => {
+    // State to manage if window is defined
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        // This will run only on the client side
+        setIsClient(true);
+    }, []);
+
     return (
         <div className="bg-white w-full">
             <style jsx>{customStyles}</style>
@@ -28,7 +36,7 @@ const Servicespage = () => {
                 </div>
             </section>
         </div>
-    )
+    );
 }
 
 export default Servicespage;

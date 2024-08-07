@@ -1,9 +1,11 @@
-"use client";
+'use client';
+
 import { useRef } from 'react';
 import Script from 'next/script';
 import dynamic from 'next/dynamic';
+import { testimonials } from '../constant';
 
-// Dynamic import with no SSR
+// Dynamically import components with no server-side rendering (SSR)
 const Hero = dynamic(() => import('../components/Hero'), { ssr: false });
 const FeatureSection1 = dynamic(() => import('../components/FeatureSection1'), { ssr: false });
 const FeatureSection2 = dynamic(() => import('../components/FeatureSection2'), { ssr: false });
@@ -17,13 +19,13 @@ const HowItsWork = dynamic(() => import('../components/HowItsWork'), { ssr: fals
 const ScrollToTopButton = dynamic(() => import('../components/ScrollToTopButton'), { ssr: false });
 const OurTeam = dynamic(() => import('../components/OurTeam'), { ssr: false });
 
-import { testimonials } from '../constant';
-
-export default function Home() {
+const Page: React.FC = () => {
   const howItsWorkRef = useRef<HTMLDivElement>(null);
 
   const scrollToHowItsWork = () => {
-    howItsWorkRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (typeof window !== 'undefined' && howItsWorkRef.current) {
+      howItsWorkRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   return (
@@ -50,4 +52,6 @@ export default function Home() {
       />
     </section>
   );
-}
+};
+
+export default Page;

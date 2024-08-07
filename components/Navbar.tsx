@@ -2,16 +2,18 @@
 
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { useState, useCallback, createContext } from 'react';
+import { useState, useCallback, createContext, useContext } from 'react';
 import { FiMenu, FiX } from 'react-icons/fi';
 import Image from 'next/image';
 import { NAV_LINKS } from '@/constant';
 
 // Create a context for the menu state with default values
-export const MenuContext = createContext({
+const MenuContext = createContext({
   isMenuOpen: false,
-  toggleMenu: () => {},
+  toggleMenu: () => { },
 });
+
+export const useMenu = () => useContext(MenuContext);
 
 const Navbar = () => {
   const pathname = usePathname();

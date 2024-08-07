@@ -20,10 +20,12 @@ const customStyles = `
 
 const FeatureSection2 = () => {
     useEffect(() => {
-        new WOW({
-            animateClass: 'animate__animated', // default
-            offset: 0,
-        }).init();
+        if (typeof window !== 'undefined') {
+            new WOW({
+                animateClass: 'animate__animated', // default
+                offset: 0,
+            }).init();
+        }
     }, []);
 
     return (

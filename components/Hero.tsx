@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 
@@ -69,10 +69,10 @@ const Hero: React.FC<{ scrollToHowItsWork: () => void }> = React.memo(({ scrollT
             <div className="container mx-auto px-6 flex flex-col items-center justify-center text-center md:flex-row md:justify-between md:text-left">
                 <div className="w-full md:flex-1 mt-[-4%] mb-12 md:mb-0">
                     <h1 className="text-4xl font-extrabold text-gray-900 md:text-5xl leading-tight">                    
-                       Transform unpaid invoices into  <span className="text-blue-800">immediate capital. </span> 
+                       Transform unpaid invoices into <span className="text-blue-800">immediate capital.</span> 
                     </h1>
                     <p className="mt-4 text-gray-600">
-                        We are <span className="text-blue-600 font-bold">CashMe Tanzania</span>, an online marketplace for Invoice Discounting.
+                        We are <span className="text-blue-600 font-bold text-justify">CashMe Tanzania</span>, an online marketplace for Invoice Discounting.
                         <br />
                         The Platform is owned and operated by Sebuys Company Limited, a Limited Company Incorporated in Tanzania.
                     </p>
@@ -131,5 +131,7 @@ const Hero: React.FC<{ scrollToHowItsWork: () => void }> = React.memo(({ scrollT
         </section>
     );
 });
+
+Hero.displayName = 'Hero';
 
 export default Hero;

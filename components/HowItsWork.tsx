@@ -14,50 +14,50 @@ const HowItsWork = () => {
                 </div>
 
                 {/* Step 1 */}
-                <div className="flex flex-col items-center text-center mb-12 lg:mb-0 lg:w-1/4 xl:w-1/5">
-                    <div className="relative flex items-center justify-center mb-4 lg:mb-6">
+                <div className="flex flex-col items-center md:w-[150%] text-center mb-12 lg:mb-0 lg:w-1/4 xl:w-1/5">
+                    <div className="relative flex items-center justify-center mb-4 lg:mb-6  md:w-[150%]">
                         <div className="w-10 h-10 bg-blue-900 text-white rounded-full flex items-center justify-center text-lg font-bold z-10">1</div>
                         <div className="absolute w-32 h-1 bg-gray-300"></div>
                     </div>
-                    <div className="bg-white p-6 lg:p-8 xl:p-10 rounded-lg">
+                    <div className="bg-white p-6  lg:p-8 xl:p-10 rounded-lg md:w-[130%] md:mt-[-18%]">
                         <h3 className="text-xl font-bold text-gray-900 mb-3">Quick Sign Up</h3>
-                        <p className="text-gray-700">Sign up on the CashMe Tanzania platform and upload essential documents</p>
+                        <p className="text-gray-700 text-center" >Sign up on the CashMe Tanzania platform and upload essential documents</p>
                     </div>
                 </div>
 
                 {/* Step 2 */}
-                <div className="flex flex-col items-center text-center mb-12 lg:mb-0 lg:w-1/4 xl:w-1/5">
+                <div className="flex flex-col items-center text-center mb-12 lg:mb-0 lg:w-1/4 xl:w-1/5 md:w-[150%] ">
                     <div className="relative flex items-center justify-center mb-4 lg:mb-6">
                         <div className="w-10 h-10 bg-blue-900 text-white rounded-full flex items-center justify-center text-lg font-bold z-10">2</div>
                         <div className="absolute w-32 h-1 bg-gray-300"></div>
                     </div>
-                    <div className="bg-white p-6 lg:p-8 xl:p-10 rounded-lg">
+                    <div className="bg-white p-6 lg:p-8 xl:p-10 rounded-lg md:w-[130%] md:mt-[-18%] ">
                         <h3 className="text-xl font-bold text-gray-900 mb-3">Easy Onboarding</h3>
-                        <p className="text-gray-700">After document verification, get onboarded on the CashMe Tanzania platform</p>
+                        <p className="text-gray-700 text-center " >After document verification, get onboarded on the CashMe Tanzania platform</p>
                     </div>
                 </div>
 
                 {/* Step 3 */}
-                <div className="flex flex-col items-center text-center mb-12 lg:mb-0 lg:w-1/4 xl:w-1/5">
+                <div className="flex flex-col items-center text-center mb-12 lg:mb-0 lg:w-1/4 xl:w-1/ md:w-[150%] ">
                     <div className="relative flex items-center justify-center mb-4 lg:mb-6">
                         <div className="w-10 h-10 bg-blue-900 text-white rounded-full flex items-center justify-center text-lg font-bold z-10">3</div>
                         <div className="absolute w-32 h-1 bg-gray-300"></div>
                     </div>
-                    <div className="bg-white p-6 lg:p-8 xl:p-10 rounded-lg">
+                    <div className="bg-white p-6 lg:p-8 xl:p-10 rounded-lg md:w-[130%] md:mt-[-18%] ">
                         <h3 className="text-xl font-bold text-gray-900 mb-3">Invoice Listing and Purchasing</h3>
-                        <p className="text-gray-700">Upload your invoice, and then CashMe Tanzania accredited investors will purchase that invoice</p>
+                        <p className="text-gray-700 text-center">Upload your invoice, and then CashMe Tanzania accredited investors will purchase that invoice</p>
                     </div>
                 </div>
 
                 {/* Step 4 */}
-                <div className="flex flex-col items-center text-center lg:w-1/4 xl:w-1/5">
+                <div className="flex flex-col items-center text-center lg:w-1/4 xl:w-1/5 md:w-[150%] ">
                     <div className="relative flex items-center justify-center mb-4 lg:mb-6">
                         <div className="w-10 h-10 bg-blue-900 text-white rounded-full flex items-center justify-center text-lg font-bold z-10">4</div>
                         <div className="absolute w-32 h-1 bg-gray-300"></div>
                     </div>
-                    <div className="bg-white p-6 lg:p-8 xl:p-10 rounded-lg">
+                    <div className="bg-white p-6 lg:p-8 xl:p-10 rounded-lg md:w-[130%] md:mt-[-18%] ">
                         <h3 className="text-xl font-bold text-gray-900 mb-3">Instant Cash Disbursement</h3>
-                        <p className="text-gray-700">After the purchase process is over, funds will get transferred to your business account in 48 hours</p>
+                        <p className="text-gray-700 text-center">After the purchase process is over, funds will get transferred to your business account in 48 hours</p>
                     </div>
                 </div>
             </div>

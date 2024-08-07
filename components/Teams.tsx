@@ -1,10 +1,11 @@
-"use client"
-import React from 'react'
+'use client';
 
+import React from 'react';
 
+// Define a custom style with a dynamic background image
 const customStyles = `
     .hero-background {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/banner.jpeg'); /* Ensure this path is correct */
+        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/team.jpg'); /* Ensure this path is correct */
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -13,6 +14,11 @@ const customStyles = `
 `;
 
 const Teams = () => {
+    // Perform a client-side check
+    if (typeof window === 'undefined') {
+        return null; // or some fallback content if needed
+    }
+
     return (
         <div className="bg-white w-full">
             <style jsx>{customStyles}</style>
@@ -28,7 +34,7 @@ const Teams = () => {
                 </div>
             </section>
         </div>
-    )
-}
+    );
+};
 
 export default Teams;

@@ -17,16 +17,16 @@ type Partner = {
 const OurPartners: React.FC = () => {
     const partners: Partner[] = [
         { src: '/assets/Companies/01.svg', alt: 'cmpd', scale: 1 },
-        { src: '/assets/Companies/creditinfo.svg', alt: 'creaditinfo' , scale: 1.5 },
+        { src: '/assets/Companies/creditinfo.svg', alt: 'creaditinfo', scale: 1.5 },
         { src: '/assets/Companies/06.svg', alt: 'airtel', scale: 1.5 },
-        { src: '/assets/Companies/04.svg', alt: 'tigo' , scale: 1.5 },
+        { src: '/assets/Companies/04.svg', alt: 'tigo', scale: 1.5 },
         { src: '/assets/Companies/vodacom.svg', alt: 'vodacom', scale: 1 }, // Scale down Vodacom logo
-        { src: '/assets/Companies/03.svg', alt: 'cashme' , scale: 1.2  },
-        { src: '/assets/Companies/07.svg', alt: 'tcra' , scale: 1.2  },
-        { src: '/assets/Icon/mastercard.svg', alt: 'mastercard' , scale: 2  },
-        { src: '/assets/Companies/uba.svg', alt: 'UBA' , scale: 1.2  },
-        { src: '/assets/Icon/godaddys.svg', alt: 'godaddy' , scale: 1.5  },
-        { src: '/assets/Icon/tcb.svg', alt: 'tcb' , scale: 1.2  },
+        { src: '/assets/Companies/03.svg', alt: 'cashme', scale: 1.2 },
+        { src: '/assets/Companies/07.svg', alt: 'tcra', scale: 1.2 },
+        { src: '/assets/Icon/mastercard.svg', alt: 'mastercard', scale: 2 },
+        { src: '/assets/Companies/uba.svg', alt: 'UBA', scale: 1.2 },
+        { src: '/assets/Icon/godaddys.svg', alt: 'godaddy', scale: 1.5 },
+        { src: '/assets/Icon/tcb.svg', alt: 'tcb', scale: 1.2 },
     ];
 
     return (

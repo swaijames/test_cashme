@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
                                 height={50}
                                 className="mb-4"
                             />
-                            <p className="text-gray-600 mb-4">
+                            <p className="text-gray-600 mb-4 text-justify">
                                 CashMe Tanzania is owned and operated by Sebuys Company Limited, a Limited company incorporated in Tanzania with incorporation No.128863. The company trades as CashMe Tanzania. Have any query?
                             </p>
                             <Link href="/contact">

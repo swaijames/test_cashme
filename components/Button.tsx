@@ -1,5 +1,6 @@
-"use client"; // Add this directive at the top
-import React, { ReactNode } from 'react';
+"use client";
+
+import React, { ReactNode, useEffect, useState } from 'react';
 
 type ButtonProps = {
     type?: 'button' | 'submit'; 
@@ -19,9 +20,20 @@ const Button = ({
     variant, 
     full = false, 
     onClick, 
-    disabled = false, // Default value for disabled
+    disabled = false, 
     children 
 }: ButtonProps) => {
+    const [isClient, setIsClient] = useState(false);
+
+    useEffect(() => {
+        // Check if `window` is defined (client-side)
+        setIsClient(true);
+    }, []);
+
+    if (!isClient) {
+        return null; // or a fallback UI for server-side rendering
+    }
+
     const baseClasses = "flex items-center justify-center transition duration-300 transform hover:scale-105";
     let variantClasses = "";
 
@@ -57,13 +69,16 @@ const Button = ({
             type={type} 
             className={`${baseClasses} ${variantClasses} ${fullClasses} ${sizeClasses} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`} 
             onClick={handleClick}
-            disabled={disabled} // Apply the disabled attribute
+            disabled={disabled}
+            aria-label={title} // Optional aria-label for better accessibility
         >
             {icon}
             {title}
-            {children} {/* Render children */}
+            {children}
         </button>
     );
 };
+
+Button.displayName = 'Button';
 
 export default Button;

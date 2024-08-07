@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -6,9 +6,15 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-import { WOW } from 'wowjs';
 import 'animate.css/animate.min.css';
 import Image from 'next/image';
+
+// Import WOW library only on the client side
+let WOW: any;
+
+if (typeof window !== 'undefined') {
+    WOW = require('wowjs').WOW;
+}
 
 type Testimonial = {
     name: string;
@@ -24,7 +30,9 @@ type TestimonialSectionProps = {
 
 const TestimonialSection: React.FC<TestimonialSectionProps> = ({ testimonials }) => {
     useEffect(() => {
-        new WOW().init();
+        if (WOW) {
+            new WOW().init();
+        }
     }, []);
 
     return (
@@ -64,7 +72,7 @@ const TestimonialSection: React.FC<TestimonialSectionProps> = ({ testimonials })
                                 </div>
                                 <h3 className="text-xl font-semibold mb-2">{testimonial.name}</h3>
                                 <p className="text-gray-600 mb-2">{testimonial.role}</p>
-                                <p className="text-gray-600 mb-4">{testimonial.text}</p>
+                                <p className="text-gray-600 mb-4 text-justify">{testimonial.text}</p>
                                 <div className="flex justify-center mb-2">
                                     {Array.from({ length: testimonial.rating }).map((_, i) => (
                                         <span key={i} className="text-yellow-400">&#9733;</span>

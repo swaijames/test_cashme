@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect } from 'react';
 import Button from './Button';
 import { WOW } from 'wowjs';
@@ -7,7 +7,9 @@ import Link from 'next/link';
 
 const JoinSection = () => {
     useEffect(() => {
-        new WOW().init();
+        if (typeof window !== 'undefined') {
+            new WOW().init();
+        }
     }, []);
 
     return (
@@ -19,7 +21,7 @@ const JoinSection = () => {
                             <h2 className="text-2xl font-bold mb-2">Join as Borrower</h2>
                             <p className="text-gray-600 mb-4">Join us now to quickly unlock cash flow from your invoice.</p>
                             <div className="flex justify-center items-center">
-                                <Link href="https://portal.cashmetanzania.com/borrower-registration" target='blank'>
+                                <Link href="https://portal.cashmetanzania.com/borrower-registration" target="_blank" rel="noopener noreferrer">
                                     <Button
                                         type="button"
                                         title="Join as Borrower"
@@ -35,7 +37,7 @@ const JoinSection = () => {
                             <h2 className="text-2xl font-bold mb-2">Join as Investor</h2>
                             <p className="text-gray-600 mb-4">Join us to create extra income, aid creative entrepreneurs.</p>
                             <div className="flex justify-center items-center">
-                                <Link href="https://portal.cashmetanzania.com/investor-registration" target="blank">
+                                <Link href="https://portal.cashmetanzania.com/investor-registration" target="_blank" rel="noopener noreferrer">
                                     <Button
                                         type="button"
                                         title="Join as Investor"

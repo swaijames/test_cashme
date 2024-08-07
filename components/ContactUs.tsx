@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unescaped-entities */
 "use client";
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
@@ -7,40 +6,7 @@ import 'animate.css/animate.min.css';
 import { AiFillPhone, AiFillMail } from 'react-icons/ai';
 import { MdLocationOn } from 'react-icons/md';
 import Button from './Button';
-
-const customStyles = `
-    .wow {
-        animation-duration: 0.5s; /* Set your custom animation duration */
-    }
-    .custom-input, .custom-textarea {
-        background-color: white;
-        color: black;
-        padding: 0.75rem;
-        border: 1px solid #e2e8f0;
-        border-radius: 0.375rem;
-        transition: border-color 0.2s, box-shadow 0.2s;
-    }
-    .custom-input:focus, .custom-textarea:focus {
-        border-color: #1e40af;
-        box-shadow: 0 0 0 3px rgba(29, 83, 150, 0.3);
-        outline: none;
-    }
-    .map-container {
-        width: 100%;
-        height: 400px;
-        position: relative;
-    }
-    .map-image {
-        object-fit: cover;
-    }
-    .hero-background {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/banner.jpeg'); /* Ensure this path is correct */
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        opacity: 1;
-    }
-`;
+import styles from '@/styles/ContactUs.module.css'; // Assuming you create a corresponding CSS module
 
 const ContactUs: React.FC = () => {
     const [formData, setFormData] = useState({
@@ -54,10 +20,12 @@ const ContactUs: React.FC = () => {
     const [statusMessage, setStatusMessage] = useState('');
 
     useEffect(() => {
-        new WOW({
-            animateClass: 'animate__animated', // default
-            offset: 0,
-        }).init();
+        if (typeof window !== 'undefined') {
+            new WOW({
+                animateClass: 'animate__animated', // default
+                offset: 0,
+            }).init();
+        }
     }, []);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -96,7 +64,15 @@ const ContactUs: React.FC = () => {
 
     return (
         <>
-            <style jsx>{customStyles}</style>
+            <style jsx>{`
+                .hero-background {
+                    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('/assets/banner.jpeg');
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    opacity: 1;
+                }
+            `}</style>
             <div className="bg-white w-full">
                 {/* Hero Section */}
                 <section className="relative mt-20 bg-gray-800 text-white">
@@ -104,7 +80,7 @@ const ContactUs: React.FC = () => {
                         <div className="z-10 flex flex-col items-center justify-center h-full p-4 sm:p-6 md:p-8">
                             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white">Contact Us</h1>
                             <p className="mt-4 text-base sm:text-lg md:text-xl text-white text-center max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl">
-                                We're here to help. Reach out to us anytime.
+                                We&apos;re here to help. Reach out to us anytime.
                             </p>
                         </div>
                     </div>
@@ -116,7 +92,7 @@ const ContactUs: React.FC = () => {
                     <div className="w-full lg:w-1/2 mb-8 lg:mb-0 wow animate__fadeInLeft lg:mr-4">
                         <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-gray-900">Get in Touch</h2>
                         <p className="text-gray-700 mb-8">
-                            Have a question or feedback? We're here to help. Send us a message, and we'll respond back.
+                            Have a question or feedback? We&apos;re here to help. Send us a message, and we&apos;ll respond back.
                         </p>
                         <form className="space-y-4" onSubmit={handleSubmit}>
                             <div className="flex space-x-4">
@@ -124,7 +100,7 @@ const ContactUs: React.FC = () => {
                                     type="text"
                                     name="firstName"
                                     placeholder="First Name"
-                                    className="custom-input w-1/2"
+                                    className={styles.customInput}
                                     value={formData.firstName}
                                     onChange={handleChange}
                                 />
@@ -132,7 +108,7 @@ const ContactUs: React.FC = () => {
                                     type="text"
                                     name="lastName"
                                     placeholder="Last Name"
-                                    className="custom-input w-1/2"
+                                    className={styles.customInput}
                                     value={formData.lastName}
                                     onChange={handleChange}
                                 />
@@ -141,7 +117,7 @@ const ContactUs: React.FC = () => {
                                 type="text"
                                 name="mobileNumber"
                                 placeholder="Mobile Number"
-                                className="custom-input w-full"
+                                className={styles.customInput}
                                 value={formData.mobileNumber}
                                 onChange={handleChange}
                             />
@@ -149,14 +125,14 @@ const ContactUs: React.FC = () => {
                                 type="email"
                                 name="email"
                                 placeholder="Email Address"
-                                className="custom-input w-full"
+                                className={styles.customInput}
                                 value={formData.email}
                                 onChange={handleChange}
                             />
                             <textarea
                                 name="message"
                                 placeholder="Your Message"
-                                className="custom-textarea w-full h-32"
+                                className={`${styles.customInput} ${styles.customTextarea}`}
                                 value={formData.message}
                                 onChange={handleChange}
                             />
@@ -171,12 +147,12 @@ const ContactUs: React.FC = () => {
 
                     {/* Map and Contact Info Column */}
                     <div className="w-full lg:w-1/2 wow animate__fadeInRight">
-                        <div className="map-container">
+                        <div className={styles.mapContainer}>
                             <Image
                                 src="/assets/map.png"
                                 alt="Map"
                                 layout="fill"
-                                className="map-image"
+                                className={styles.mapImage}
                             />
                         </div>
                         <div className="mt-8 space-y-4">

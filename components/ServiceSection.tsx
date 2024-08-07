@@ -6,7 +6,9 @@ import 'animate.css/animate.min.css';
 
 const ServiceSection = () => {
     useEffect(() => {
-        new WOW().init();
+        if (typeof window !== 'undefined') {
+            new WOW().init();
+        }
     }, []);
 
     return (

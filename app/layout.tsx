@@ -3,24 +3,19 @@ import { Inter } from 'next/font/google';
 import { MantineProvider } from '@mantine/core';
 import './globals.css';
 import ClientSideComponents from './utils/ClientSideComponents';
-import  Script  from 'next/script';
+import Script from 'next/script';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'] });
 
-// Dynamically import Navbar and Footer components
 const Navbar = React.lazy(() => import('../components/Navbar'));
 const Footer = React.lazy(() => import('../components/Footer'));
 
 export const metadata = {
-  title: "CashMe Tanzania",
-  description: "An online marketplace for Invoice Discounting",
+  title: 'CashMe Tanzania',
+  description: 'An online marketplace for Invoice Discounting',
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -30,20 +25,14 @@ export default function RootLayout({
               <React.Suspense fallback={<div>Loading...</div>}>
                 <Navbar />
               </React.Suspense>
-              <main className="relative overflow-hidden">
-                {children}
-              </main>
+              <main className="relative overflow-hidden">{children}</main>
               <React.Suspense fallback={<div>Loading...</div>}>
                 <Footer />
               </React.Suspense>
             </ClientSideComponents>
           </React.StrictMode>
         </MantineProvider>
-        {/* Example of deferring a non-critical script */}
-        <Script
-          src="https://example.com/non-critical-script.js"
-          strategy="lazyOnload"
-        />
+        <Script src="https://example.com/non-critical-script.js" strategy="lazyOnload" />
       </body>
     </html>
   );

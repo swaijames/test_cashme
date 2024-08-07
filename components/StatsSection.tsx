@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState, useEffect } from 'react';
 import { AiOutlineFileText, AiOutlineTeam, AiOutlineUser } from 'react-icons/ai'; // Import relevant icons
@@ -43,10 +43,13 @@ const StatsSection: React.FC = () => {
     const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        new WOW({
-            animateClass: 'animate__animated', // default
-            offset: 0,
-        }).init();
+        // Check if window is defined before running WOW.js
+        if (typeof window !== 'undefined') {
+            new WOW({
+                animateClass: 'animate__animated', // default
+                offset: 0,
+            }).init();
+        }
 
         const fetchData = async () => {
             try {

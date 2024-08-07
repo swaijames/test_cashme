@@ -9,18 +9,22 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import { WOW } from 'wowjs';
 import 'animate.css/animate.min.css';
-import { FaTwitter, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import { FaLinkedin } from 'react-icons/fa';
 import { teamMembers } from '../constant';
 
 const OurTeam: React.FC = () => {
     useEffect(() => {
-        new WOW().init();
+        if (typeof window !== 'undefined') {
+            new WOW().init();
+        }
     }, []);
 
     return (
         <section className="w-full bg-white py-8 shadow-2xl">
             <div className="container mx-auto px-4">
-                <h2 className="text-center text-3xl font-bold mb-6 text-gray-900">Meet the <span className="text-blue-800">team</span></h2>
+                <h2 className="text-center text-3xl font-bold mb-6 text-gray-900">
+                    Meet the <span className="text-blue-800">team</span>
+                </h2>
                 <p className="mt-4 text-lg text-center pb-4 text-gray-600 animate__animated animate__fadeIn animate__delay-1s">
                     Our dedicated team of professionals
                 </p>
@@ -58,7 +62,6 @@ const OurTeam: React.FC = () => {
                                         layout="fill"
                                         className="rounded-full object-cover"
                                         quality={100}
-                                        
                                     />
                                 </div>
                                 <h3 className="text-xl font-semibold mb-2">{member.name}</h3>

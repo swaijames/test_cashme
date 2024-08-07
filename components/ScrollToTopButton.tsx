@@ -7,20 +7,25 @@ const ScrollToTopButton: React.FC = () => {
     const [isVisible, setIsVisible] = useState<boolean>(false);
 
     useEffect(() => {
-        const handleScroll = () => {
-            if (window.scrollY > 300) {
-                setIsVisible(true);
-            } else {
-                setIsVisible(false);
-            }
-        };
+        // Check if running in the browser
+        if (typeof window !== 'undefined') {
+            const handleScroll = () => {
+                if (window.scrollY > 300) {
+                    setIsVisible(true);
+                } else {
+                    setIsVisible(false);
+                }
+            };
 
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
+            window.addEventListener('scroll', handleScroll);
+            return () => window.removeEventListener('scroll', handleScroll);
+        }
     }, []);
 
     const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (typeof window !== 'undefined') {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     };
 
     return (

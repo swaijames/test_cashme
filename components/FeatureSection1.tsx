@@ -13,10 +13,12 @@ const customStyles = `
 
 const FeatureSection1 = () => {
     useEffect(() => {
-        new WOW({
-            animateClass: 'animate__animated', // default
-            offset: 0,
-        }).init();
+        if (typeof window !== 'undefined') {
+            new WOW({
+                animateClass: 'animate__animated', // default
+                offset: 0,
+            }).init();
+        }
     }, []);
 
     return (
@@ -33,17 +35,17 @@ const FeatureSection1 = () => {
                                 <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl wow animate__animated animate__fadeInUp">
                                     Make it happen with Invoice Finance
                                 </p>
-                                <p className="mt-6 text-lg leading-8 text-gray-600 wow animate__animated animate__fadeInUp">
+                                <p className="mt-6 text-lg leading-8 text-gray-600 wow animate__animated animate__fadeInUp text-justify">
                                     Take control of your cash flow and advance the funds owed to you from outstanding invoices.
                                 </p>
                                 <dl className="mt-10 max-w-xl space-y-8 text-base leading-7 text-gray-600 lg:max-w-none">
                                     {Features1.map((feature) => (
-                                        <div key={feature.name} className="relative pl-9 wow animate__animated animate__fadeInUp">
-                                            <dt className="inline font-semibold text-gray-900">
+                                        <div key={feature.name} className="relative pl-9 wow animate__animated animate__fadeInUp text-justify">
+                                            <dt className="inline font-semibold text-gray-900 text-justify">
                                                 <feature.icon aria-hidden="true" className="absolute left-1 top-1 h-5 w-5 text-indigo-900" />
                                                 {feature.name}
                                             </dt>{' '}
-                                            <dd className="inline">{feature.description}</dd>
+                                            <dd className="inline text-justify">{feature.description}</dd>
                                         </div>
                                     ))}
                                 </dl>
