@@ -10,8 +10,6 @@ const page: React.FC = () => {
         <div>
             <Teams />
             <OurTeam />
-            
-
         </div>
     )
 }
